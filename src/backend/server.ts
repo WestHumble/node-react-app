@@ -20,11 +20,9 @@ export const startServer = ({ port, corsOptions, limiter }: TServerConfig) => {
   app.use(cors(corsOptions));
   app.disable("x-powered-by");
   app.use(limit({ windowMs: limiter.time, max: limiter.max }));
+  app.use(express.json());
   app.use(router);
 
-  app.get("/", (req, res) => {
-    res.send("Hello World!");
-  });
   app.listen(port, () => {
     console.log("Example app listening on port ${port}");
   });
