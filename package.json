@@ -1,0 +1,19 @@
+{
+  "name": "node-react-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/WestHumble/node-react-app.git",
+  "author": "Dominik Soj <48448459+WestHumble@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "be-dev": "npx nodemon src/backend/index.ts",
+    "be-start": "node dist/backend/index.js",
+    "be-build": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
