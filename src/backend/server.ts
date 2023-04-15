@@ -3,6 +3,7 @@ import helmet from "helmet";
 import cors from "cors";
 import limit from "express-rate-limit";
 import { CorsOptions } from "cors";
+import router from "./routes";
 
 export type TServerConfig = {
   port: number;
@@ -19,6 +20,7 @@ export const startServer = ({ port, corsOptions, limiter }: TServerConfig) => {
   app.use(cors(corsOptions));
   app.disable("x-powered-by");
   app.use(limit({ windowMs: limiter.time, max: limiter.max }));
+  app.use(router);
 
   app.get("/", (req, res) => {
     res.send("Hello World!");
